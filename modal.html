@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 또는 회원가입</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+        body {
+            font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+        }
+
+        .wrapper {
+            width: 520px;
+            margin-top: 3vh;
+            border: 1px solid #C4C4C4;
+            border-radius: 10px;
+        }
+
+        .wrapper::after {
+        content:'';
+        display:block;
+        clear:both;
+        }
+
+        .wrapper .txt-login {
+            text-align: center;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 20px 0 17px;            
+            border-bottom: 1px solid #C4C4C4;
+            position: relative;
+        }
+
+        .wrapper .txt-login::after {            
+            content: '';
+            background-image: url(/images/close.png);            
+            background-repeat: none;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 24px;
+        }
+        
+        .wrapper .wrapper2 {
+            padding: 24px;
+        }
+
+        .wrapper2 .txt-weniv {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            margin: 2px auto 24px;
+        }
+
+        .wrapper2 input[class^="input"] {
+            display: block;            
+            width: 454px;
+            height: 50px;
+            border: 1px solid #C4C4C4;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #767676;
+            padding-left: 16px;
+        }
+
+        .wrapper2 .input-pw {
+            margin: 10px 0 17px;            
+        }
+
+        .wrapper2 .cbox-login::before {
+            display: inline-block;
+            content: "";
+            background-image: url(/images/icon_check_empty.png);
+            width: 22px;
+            height: 22px;            
+            vertical-align: bottom;
+            margin-right: 8px;
+        }
+
+        .wrapper2 .cbox-login {
+            font-weight: 500;            
+            font-size: 16px;
+            line-height: 20px;
+            color: #767676;
+            margin-bottom: 21px;
+        }
+
+        .wrapper2 a, .wrapper2 p.txt-or {
+            text-decoration: none;
+            color: #767676;
+        }
+
+        .wrapper2 .btn-login {
+            display: block;
+            width: 472px;
+            padding: 14px 0px 14px;
+            background: #2F80ED;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrapper2 .btns {
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 31px;
+        }
+
+        .wrapper2 .btn-find::before {
+            content: "";
+            display: inline-block;
+            width: 1px;
+            height: 14px;
+            background-color: #767676;
+            vertical-align: -2px;
+            margin: 0px 12px 0px;            
+        }
+
+        .wrapper2 .txt-or::before {
+            content: "";
+            float: left;
+            width: 210px;
+            height: 1px;
+            background: #C4C4C4;
+            margin-right: 13px;
+        }
+        
+        .wrapper2 .txt-or {
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 19px;
+        }
+
+        .wrapper2 .txt-or::after {
+            content: "";
+            float: right;
+            width: 210px;
+            height: 1px;
+            background: #C4C4C4;
+            margin-left: 13px;
+        }
+
+        .social-login > a {
+            display: block;           
+            text-align: center;
+            border: 1px solid #767676;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 15px;
+            font-weight: 500;
+            font-size: 16px;   
+            margin-top: 10px;
+        }
+
+        .social-login > a:nth-child(1)::before {
+            content: "";
+            background-image: url(/images/css_sprites.png);
+            background-position: -6px -6px;            
+            width: 28px;
+            height: 28px;
+            float: left;
+            transform: translatey(-6px);
+        }
+
+        .social-login > a:nth-child(2) {
+            border: 1px solid #2D9CDB;
+        }
+
+        .social-login > a:nth-child(2)::before {
+            content: "";
+            background-image: url(/images/css_sprites.png);
+            background-position: -86px -8px;            
+            width: 28px;
+            height: 28px;
+            float: left;
+            transform: translatey(-6px);
+        }
+
+        .social-login > a:nth-child(3) {
+            border: 1px solid #00BF18;
+        }
+
+        .social-login > a:nth-child(3)::before {
+            content: "";
+            background-image: url(/images/css_sprites.png);
+            background-position: -6px -48px;            
+            width: 28px;
+            height: 28px;
+            float: left;
+            transform: translatey(-6px);
+        }
+
+        .social-login > a:nth-child(4) {
+            border: 1px solid #F2C94C;
+        }
+
+        .social-login > a:nth-child(4)::before {
+            content: "";
+            background-image: url(/images/css_sprites.png);
+            background-position: -48px -6px;            
+            width: 28px;
+            height: 28px;
+            float: left;
+            transform: translatey(-6px);
+        }
+
+    </style>
+</head>
+<body>
+    <article class="wrapper">
+        <h2 class="txt-login">로그인 또는 회원가입</h2>
+        <div class="wrapper2">
+            <p class="txt-weniv">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+            <input class="input-id" type="text" name="id" id="id" placeholder="아이디" method="post">
+            <input class="input-pw" type="password" name="pw" id="pw" placeholder="비밀번호" method="post">
+            <p class="cbox-login">로그인 상태 유지</p>
+            <a class="btn-login" href="#">로그인</a>
+            <div class="btns">
+                <a class="btn-join" href="#">회원가입</a>
+                <a class="btn-find" href="#">아이디/비밀번호 찾기</a>
+            </div>
+            <p class="txt-or">또는</p>
+            <div class="social-login">
+                <a href="#">구글 계정으로 로그인</a>
+                <a href="#">페이스북 계정으로 로그인</a>
+                <a href="#">네이버 계정으로 로그인</a>
+                <a href="#">카카오톡 계정으로 로그인</a>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
