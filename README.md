@@ -37,7 +37,8 @@
 
 ## 그리고 행복 CSS 갓종찬님의 코드...
 flex-grow를 사용하시다니.... 역시 아직 갈길이 멀었다!!!
-```.line {
+```
+.line {
   display: flex; 
   gap: 20px;
   align-items: center;
@@ -55,5 +56,6 @@ flex-grow를 사용하시다니.... 역시 아직 갈길이 멀었다!!!
 
 .line_blue {
   color: dodgerblue;
-}```
+}
+```
 
