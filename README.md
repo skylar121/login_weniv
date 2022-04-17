@@ -35,3 +35,25 @@
 가상 클래스로 이미지들을 넣었는데 자꾸 이상하게 텍스트 위에 빈공간이 생기는것이었다.... display: flex를 활용해서 해결하려니 버튼 텍스트들의 시작점이 모두 동일해지는 문제 발생...
 결국 float: left 를 주고, transform: translatey 를 활용하여 이미지를 움직여주는 것으로 해결하였다.
 
+## 그리고 행복 CSS 갓종찬님의 코드...
+flex-grow를 사용하시다니.... 역시 아직 갈길이 멀었다!!!
+```.line {
+  display: flex; 
+  gap: 20px;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.line::before,
+.line::after {
+  content: ' '; 
+  flex-grow: 1;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.4;
+}
+
+.line_blue {
+  color: dodgerblue;
+}```
+
