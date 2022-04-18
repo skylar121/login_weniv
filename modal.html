@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 또는 회원가입</title>
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="modal.css">
     <style>
         @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -23,13 +24,7 @@
             border-radius: 10px;
         }
 
-        .wrapper::after {
-        content:'';
-        display:block;
-        clear:both;
-        }
-
-        .wrapper .txt-login {
+        .wrapper h2.txt-login {
             text-align: center;
             font-style: normal;
             font-weight: 500;
@@ -37,17 +32,24 @@
             line-height: 20px;
             padding: 20px 0 17px;            
             border-bottom: 1px solid #C4C4C4;
+        }
+
+        .wrapper .title {
             position: relative;
         }
 
-        .wrapper .txt-login::after {            
-            content: '';
-            background-image: url(/images/close.png);            
-            background-repeat: none;
+        .wrapper button.close {
+            position: absolute;
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            background: url(/images/close.png) no-repeat center;
+            border: none;
             width: 16px;
             height: 16px;
-            position: absolute;
-            right: 24px;
+            cursor: pointer;
+            top: 21px;
+            right: 23px;
         }
         
         .wrapper .wrapper2 {
@@ -75,10 +77,39 @@
         }
 
         .wrapper2 .input-pw {
-            margin: 10px 0 17px;            
+            margin: 10px 0 10px;            
         }
 
-        .wrapper2 .cbox-login::before {
+        .wrapper2 label.hidden {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        .wrapper2 strong[class^=warn] {
+            display: block;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #F4492E;
+        }
+
+        .wrapper2 strong.warn-id {
+            margin-top: 6px;
+        }
+
+        .wrapper2 strong.warn-pw {
+            margin-bottom: 13px;
+        }
+
+        .wrapper2 input[id="cbox"] {
+            display: none;
+        }
+
+        .wrapper2 label.cbox-txt::before {     
             display: inline-block;
             content: "";
             background-image: url(/images/icon_check_empty.png);
@@ -86,14 +117,19 @@
             height: 22px;            
             vertical-align: bottom;
             margin-right: 8px;
+            cursor: pointer;
         }
 
-        .wrapper2 .cbox-login {
+        .wrapper2 input[id="cbox"]:checked + label.cbox-txt::before {
+            background-image: url(/images/icon_check.png);
+        }
+
+        .wrapper2 label.cbox-txt {
             font-weight: 500;            
             font-size: 16px;
             line-height: 20px;
-            color: #767676;
-            margin-bottom: 21px;
+            color: #767676;            
+            cursor: pointer;
         }
 
         .wrapper2 a, .wrapper2 p.txt-or {
@@ -112,7 +148,7 @@
             line-height: 22px;
             color: white;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 21px 0 20px;
         }
 
         .wrapper2 .btns {
@@ -133,15 +169,6 @@
             margin: 0px 12px 0px;            
         }
 
-        .wrapper2 .txt-or::before {
-            content: "";
-            float: left;
-            width: 210px;
-            height: 1px;
-            background: #C4C4C4;
-            margin-right: 13px;
-        }
-        
         .wrapper2 .txt-or {
             text-align: center;
             font-weight: 400;
@@ -149,15 +176,14 @@
             display: flex;
             align-items: center;
             margin-bottom: 19px;
+            gap: 1em;
         }
 
-        .wrapper2 .txt-or::after {
+        .wrapper2 .txt-or::before, .wrapper2 .txt-or::after {
             content: "";
-            float: right;
-            width: 210px;
+            flex: 1;
             height: 1px;
             background: #C4C4C4;
-            margin-left: 13px;
         }
 
         .social-login > a {
@@ -223,30 +249,37 @@
             float: left;
             transform: translatey(-6px);
         }
-
     </style>
 </head>
 <body>
     <article class="wrapper">
-        <h2 class="txt-login">로그인 또는 회원가입</h2>
-        <div class="wrapper2">
+        <header class="title">
+            <h2 class="txt-login">로그인 또는 회원가입</h2>
+            <button class="close" name="로그인창 닫기"></button>
+        </header>   
+        <form class="wrapper2">
             <p class="txt-weniv">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
-            <input class="input-id" type="text" name="id" id="id" placeholder="아이디" method="post">
-            <input class="input-pw" type="password" name="pw" id="pw" placeholder="비밀번호" method="post">
-            <p class="cbox-login">로그인 상태 유지</p>
-            <a class="btn-login" href="#">로그인</a>
+            <input class="input-id" type="text" name="id" id="id" placeholder="아이디" method="post" required>
+            <label for="id" class="hidden">아이디</label>
+            <strong class="warn-id">아이디를 입력해 주세요.</strong>
+            <input class="input-pw" type="password" name="pw" id="pw" placeholder="비밀번호" method="post" required>
+            <label for="pw" class="hidden">비밀번호</label>
+            <strong class="warn-pw">아이디 혹은 비밀번호가 일치하지 않습니다.</strong>
+            <input type="checkbox" name="checkbox-login" id="cbox">
+            <label for="cbox" class="cbox-txt">로그인 상태 유지</label>
+            <a class="btn-login" href="#none">로그인</a>
             <div class="btns">
-                <a class="btn-join" href="#">회원가입</a>
-                <a class="btn-find" href="#">아이디/비밀번호 찾기</a>
+                <a class="btn-join" href="#none">회원가입</a>
+                <a class="btn-find" href="#none">아이디/비밀번호 찾기</a>
             </div>
             <p class="txt-or">또는</p>
             <div class="social-login">
-                <a href="#">구글 계정으로 로그인</a>
-                <a href="#">페이스북 계정으로 로그인</a>
-                <a href="#">네이버 계정으로 로그인</a>
-                <a href="#">카카오톡 계정으로 로그인</a>
+                <a href="#none">구글 계정으로 로그인</a>
+                <a href="#none">페이스북 계정으로 로그인</a>
+                <a href="#none">네이버 계정으로 로그인</a>
+                <a href="#none">카카오톡 계정으로 로그인</a>
             </div>
-        </div>
+        </form>
     </article>
 </body>
 </html>
