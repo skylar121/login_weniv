@@ -21,7 +21,8 @@
             width: 520px;
             margin-top: 3vh;
             border: 1px solid #C4C4C4;
-            border-radius: 10px;
+            border-radius: 10px;            
+            position: relative;
         }
 
         .wrapper h2.txt-login {
@@ -34,10 +35,6 @@
             border-bottom: 1px solid #C4C4C4;
         }
 
-        .wrapper .title {
-            position: relative;
-        }
-
         .wrapper button.close {
             position: absolute;
             padding: 0;
@@ -48,8 +45,8 @@
             width: 16px;
             height: 16px;
             cursor: pointer;
-            top: 21px;
-            right: 23px;
+            top: 22px;
+            right: 24px;
         }
         
         .wrapper .wrapper2 {
@@ -253,10 +250,7 @@
 </head>
 <body>
     <article class="wrapper">
-        <header class="title">
-            <h2 class="txt-login">로그인 또는 회원가입</h2>
-            <button class="close" name="로그인창 닫기"></button>
-        </header>   
+        <h2 class="txt-login">로그인 또는 회원가입</h2>
         <form class="wrapper2">
             <p class="txt-weniv">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
             <input class="input-id" type="text" name="id" id="id" placeholder="아이디" method="post" required>
@@ -280,6 +274,7 @@
                 <a href="#none">카카오톡 계정으로 로그인</a>
             </div>
         </form>
+        <button class="close" name="로그인창 닫기"></button>
     </article>
 </body>
 </html>
